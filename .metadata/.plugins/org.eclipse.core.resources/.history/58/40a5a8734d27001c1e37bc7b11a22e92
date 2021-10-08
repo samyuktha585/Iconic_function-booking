@@ -1,0 +1,5 @@
+package com.iconicsbooking.repository;
+
+public interface IconicBooking {
+
+}

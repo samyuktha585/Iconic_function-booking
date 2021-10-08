@@ -1,0 +1,14 @@
+package com.iconicsbooking.model;
+
+import java.time.LocalDate;
+
+public class TaskService {
+	private Integer taskId;
+	private String organizer;
+	private double rating;
+	private LocalDate startDate;
+	private LocalDate endDate;
+	Private int duration;
+	private String status;
+	
+}

@@ -1,0 +1,18 @@
+package com.iconicsbooking.service;
+
+import java.util.List;
+
+import com.iconicsbooking.model.Events;
+import com.iconicsbooking.model.IconicBooking;
+
+public interface IconicBookingService {
+	IconicBooking addComapny(IconicBooking company);
+
+	void updateCompany(IconicBooking company);
+
+	void deleteCompany(int companyId);
+
+	List<IconicBooking> getAll();
+
+	IconicBooking getById(int companyId);
+}

@@ -1,0 +1,29 @@
+package com.iconicsbooking.model;
+
+import java.time.LocalDate;
+import java.util.Set;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
+
+import org.springframework.data.annotation.Id;
+
+public class TaskService {
+
+	@Id
+	@GeneratedValue(generator = "taskService_gen", strategy = GenerationType.AUTO)
+	@SequenceGenerator(name = "taskService_gen", sequenceName = "taskService_seq", initialValue = 100, allocationSize = 1)
+	private Integer taskId;
+	private String organizer;
+	private double rating;
+	private LocalDate startDate;
+	private LocalDate endDate;
+	private int duration;
+	private String status;
+	@OneToMany(mappedBy = "taskService")
+	private Set<Workers> resourceList;
+    @ManyToOne
+    Marriage marriage;
+}

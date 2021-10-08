@@ -1,0 +1,95 @@
+package com.iconicsbooking.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.iconicsbooking.model.Events;
+import com.iconicsbooking.model.IconicBooking;
+import com.iconicsbooking.service.IconicBookingService;
+
+@RestController
+@RequestMapping("events_api")
+public class IconicsController {
+	@Autowired
+	IconicBookingService iBookingService;
+	
+	@PostMapping("/company")
+	IconicBooking addCompany(@RequestBody IconicBooking company)
+	{
+	return iBookingService.addComapny(null);
+	}
+	@DeleteMapping("/company")
+	void deleteCompany(int companyId)
+	{
+		iBookingService.deleteCompany(companyId);
+	}
+	@GetMapping("/company")
+	List<IconicBooking> getAll()
+	{
+		return iBookingService.getAll();
+	}
+	@GetMapping("/company/companyId/{companyId}")
+	ResponseEntity<IconicBooking> getById(@PathVariable("companyId") int companyId)
+	{
+		IconicBooking comapanyById = iBookingService.getById(companyId);
+		HttpHeaders headers = new HttpHeaders();
+		headers.add("desc","Get one event by Id");
+		headers.add("info","Returning one event");
+		ResponseEntity<IconicBooking> responseCompany = new ResponseEntity<IconicBooking>(comapanyById,headers,HttpStatus.OK);
+		return responseCompany;
+	}
+	@GetMapping("/comapny/companyName/{companyName}")
+	ResponseEntity<List<IconicBooking>> getByEventName(@PathVariable("companyName") String companyName)
+	{
+		List<IconicBooking> companyByname = iBookingService.getByCompanyName(companyName);
+		HttpHeaders headers = new HttpHeaders();
+		headers.add("desc","Get eventList By event name");
+		return ResponseEntity.status(HttpStatus.OK).headers(headers).body(companyByname);
+	}
+	@GetMapping("/events/eventProvider/{eventProvider}")
+	ResponseEntity<List<Events>> getByEventProvider(@PathVariable("eventProvider") String eventProvider)
+	{
+		List<Events> eventsByProvider = eventService.getByEventProvider(eventProvider);
+		HttpHeaders headers = new HttpHeaders();
+		headers.add("desc","Get eventList By event provider");
+		return ResponseEntity.status(HttpStatus.OK).headers(headers).body(eventsByProvider);
+	}
+	@GetMapping("/events/priority/{priority}")
+	ResponseEntity<List<Events>> getByEventPriority(@PathVariable("priority") String priority)
+	{
+		List<Events> eventsByPriority = eventService.getByPriority(priority);
+		HttpHeaders headers = new HttpHeaders();
+		headers.add("desc","Get eventList By event priority");
+		return ResponseEntity.status(HttpStatus.OK).headers(headers).body(eventsByPriority);
+	}
+	@GetMapping("/events/status/{status}")
+	ResponseEntity<List<Events>> getByEventStatus(@PathVariable("status") String status)
+	{
+		List<Events> eventsByStatus = eventService.getByPriority(status);
+		HttpHeaders headers = new HttpHeaders();
+		headers.add("desc","Get eventList By event status");
+		return ResponseEntity.status(HttpStatus.OK).headers(headers).body(eventsByStatus);
+	}
+	@GetMapping("/events/")
+	ResponseEntity<List<Events>> getByEventPrice(@PathVariable("price") int price)
+	{
+		List<Events> eventsByPrice = eventService.getByPrice(price);
+		HttpHeaders headers = new HttpHeaders();
+		headers.add("desc","Get eventList By event Price");
+		return ResponseEntity.status(HttpStatus.OK).headers(headers).body(eventsByPrice);
+	
+	}
+	
+
+}

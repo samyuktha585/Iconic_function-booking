@@ -1,0 +1,7 @@
+package com.iconicsbooking.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface IconicBookingRepository extends JpaRepository<IconicBookingRepository, Integer>{
+
+}

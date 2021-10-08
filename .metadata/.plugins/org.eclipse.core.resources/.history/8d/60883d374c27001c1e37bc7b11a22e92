@@ -1,0 +1,73 @@
+package com.iconicsbooking;
+
+import java.time.LocalDate;
+import java.util.Set;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.iconicsbooking.model.Availability;
+import com.iconicsbooking.model.Events;
+import com.iconicsbooking.model.IconicBooking;
+import com.iconicsbooking.model.Priority;
+import com.iconicsbooking.model.Status;
+import com.iconicsbooking.model.TaskService;
+import com.iconicsbooking.service.IEventService;
+
+@SpringBootApplication
+public class AllocationMicroservicesApplication implements CommandLineRunner {
+
+	public static void main(String[] args) {
+		SpringApplication.run(AllocationMicroservicesApplication.class, args);
+	}
+
+	@Autowired
+	IEventService eventService;
+
+	@Override
+	public void run(String... args) throws Exception {
+		
+		LocalDate startDate = LocalDate.of(2021, 10, 20);
+		LocalDate endDate = LocalDate.of(2021, 10, 23);
+		IconicBooking company = new IconicBooking("Acheron", "Vivek", 4.5);
+		//Events event = new Events("Marriage", "ayan",startDate ,  endDate,  Priority.valueOf("HIGH"),Status.valueOf("NOT_STARTED"), 2000,company);
+//		 eventService.addEvent(event);
+//		System.out.println("Getting all the events");
+//		eventService.getAll().forEach(System.out::println);
+//		System.out.println();
+//		System.out.println("Getting By end date");
+//		LocalDate local = LocalDate.parse("2021-10-20");
+//		eventService.getByEndDate(local).forEach(System.out::println);
+//		System.out.println();
+//		System.out.println("Getting By Start date");
+//		LocalDate local1 = LocalDate.parse("2021-10-23");
+//		eventService.getByEndDate(local1).forEach(System.out::println);
+//		System.out.println();
+//		System.out.println("Getting by event name");
+//		eventService.getByEventName("Birthday").forEach(System.out::println);
+//		System.out.println();
+//		System.out.println("Getting by event provider");
+//		eventService.getByEventProvider("Febina").forEach(System.out::println);
+//		System.out.println();
+//     	System.out.println("Getting by status");
+//		eventService.getByStatus("NOT_STARTED").forEach(System.out::println);
+//		System.out.println();
+//		System.out.println("Getting by priority");
+//		eventService.getByPriority("HIGH").forEach(System.out::println);
+//		System.out.println();
+//		System.out.println("Getting by Price");
+//		eventService.getByPrice(2000).forEach(System.out::println);
+		
+		System.out.println();
+		System.out.println("Getting by event status");
+		Availability availability = Availability.valueOf("AVAILABLE");
+		eventService.getByEventStatus(availability);
+		//eventService.assignEvent(0, 0);
+		
+//		eventService.deleteEvent(100);
+		
+	}
+
+}

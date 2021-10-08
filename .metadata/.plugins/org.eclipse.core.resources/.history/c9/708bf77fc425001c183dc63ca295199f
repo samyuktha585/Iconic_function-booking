@@ -1,0 +1,92 @@
+package com.iconicsbooking.service;
+
+import java.time.LocalDate;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.iconicsbooking.model.Events;
+import com.iconicsbooking.model.Priority;
+import com.iconicsbooking.model.Status;
+import com.iconicsbooking.repository.IEventRepository;
+
+public class EventServiceImpl implements IEventService{
+	@Autowired
+	IEventRepository eventRepository;
+	public void setEventRepository(IEventRepository eventRepository) {
+		this.eventRepository = eventRepository;
+	}
+
+	@Override
+	public Events addEvent(Events events) {
+		return null;
+	}
+
+	@Override
+	public void updateEvent(Events events) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteEvent(int serviceId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<Events> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Events getById(int serviceId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Events> getByPriority(Priority priority) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Events> getByProvider(String serviProvider) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Events> getByStartDate(LocalDate startDate) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Events> getByEndDate(LocalDate endDate) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Events> getByStartDate(Status status) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Events> getByPrice(double price) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Events> getByServiceName(String serviceName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+
+}

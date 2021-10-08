@@ -1,0 +1,22 @@
+package com.iconicsbooking.model;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
+
+public class IconicBooking {
+	@Id
+	@GeneratedValue(generator = "iconic_gen", strategy = GenerationType.AUTO)
+	@SequenceGenerator(name = "iconic_gen", sequenceName = "iconic_seq", initialValue = 100, allocationSize = 1)
+	private Integer companyId;
+	private String companyName;
+	private String ownerName;
+	private double rating;
+	@OneToMany
+	@JoinColumn(name = "company_id")
+	Events event;
+
+}

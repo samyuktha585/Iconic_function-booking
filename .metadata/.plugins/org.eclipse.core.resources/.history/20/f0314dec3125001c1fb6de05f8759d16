@@ -1,0 +1,13 @@
+package com.iconicsbooking;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class AllocationMicroservicesApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(AllocationMicroservicesApplication.class, args);
+	}
+
+}

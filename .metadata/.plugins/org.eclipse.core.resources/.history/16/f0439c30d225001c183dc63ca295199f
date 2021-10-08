@@ -1,0 +1,9 @@
+package com.iconicsbooking.model;
+
+public class IconicBooking {
+	private String companyName;
+	private String ownerName;
+	Integer companyId;
+	
+
+}

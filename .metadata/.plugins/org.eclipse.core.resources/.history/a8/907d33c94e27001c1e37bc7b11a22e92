@@ -1,0 +1,61 @@
+package com.iconicsbooking.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.iconicsbooking.model.IconicBooking;
+import com.iconicsbooking.repository.IconicBookingRepository;
+@Service
+public class IconicBookingServiceImpl implements IconicBookingService {
+@Autowired
+IconicBookingRepository iconicBookingRepository;
+	@Override
+	public IconicBooking addComapny(IconicBooking company) {
+		return iconicBookingRepository.save(company);
+	}
+
+	@Override
+	public void updateCompany(IconicBooking company) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteCompany(int companyId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<IconicBooking> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public IconicBooking getById(int companyId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<IconicBooking> getByCompanyName(String companyName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<IconicBooking> getByOwnerName(String ownerName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<IconicBooking> getByRating(String rating) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

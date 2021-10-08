@@ -1,0 +1,45 @@
+package com.iconicsbooking.service;
+
+import java.time.LocalDate;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.iconicsbooking.model.Events;
+import com.iconicsbooking.model.Priority;
+import com.iconicsbooking.repository.IEventRepository;
+
+@Service
+public class EventServiceImpl implements IEventService{
+	@Autowired
+	IEventRepository eventRepository;
+	public void setEventRepository(IEventRepository eventRepository) {
+		this.eventRepository = eventRepository;
+	}
+
+	@Override
+	public Events addEvent(Events events) {
+		return eventRepository.save(events);
+	}
+
+	@Override
+	public void updateEvent(Events events) {
+		eventRepository.save(events);		
+	}
+
+	@Override
+	public void deleteEvent(int serviceId) {
+		eventRepository.deleteById(serviceId);		
+	}
+
+	@Override
+	public List<Events> getAll() {
+		return eventRepository.findAll();
+	}
+
+	@Override
+	public Events getById(int serviceId) {
+		return eventRepository.getById(serviceId);
+	}
+
+	
+}

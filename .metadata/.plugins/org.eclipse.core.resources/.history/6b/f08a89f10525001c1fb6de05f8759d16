@@ -1,0 +1,30 @@
+package com.iconicsbooking.model;
+
+import java.time.LocalDate;
+import java.util.Set;
+
+import javax.persistence.OneToMany;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
+public class Marriage {
+	private Integer serviceId;
+	private String serviceName;
+	private String serviProvider;
+	private LocalDate startDate;
+	private LocalDate endDate;
+	private String status;
+	private double price;
+	@OneToMany
+	private Set<TaskService> taskList;
+
+}

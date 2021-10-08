@@ -1,0 +1,21 @@
+package com.iconicsbooking.model;
+
+import java.time.LocalDate;
+import java.util.Set;
+import javax.persistence.OneToMany;
+
+public class TaskService {
+
+	@Id
+	@GeneratedValue(generator = "taskService_gen", strategy = GenerationType.AUTO)
+	@SequenceGenerator(name = "brand_gen", sequenceName = "brand_seq", initialValue = 100, allocationSize = 1)
+	private Integer taskId;
+	private String organizer;
+	private double rating;
+	private LocalDate startDate;
+	private LocalDate endDate;
+	private int duration;
+	private String status;
+	@OneToMany(mappedBy = "taskService")
+	private Set<Workers> resourceList;
+}

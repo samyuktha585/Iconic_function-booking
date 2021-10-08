@@ -1,0 +1,36 @@
+package com.iconicsbooking.repository;
+
+import org.springframework.stereotype.Repository;
+
+import java.time.LocalDate;
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+
+import com.iconicsbooking.model.Availability;
+import com.iconicsbooking.model.Events;
+import com.iconicsbooking.model.Priority;
+import com.iconicsbooking.model.Status;
+
+@Repository
+public interface IEventRepository extends JpaRepository<Events, Integer>{
+
+	List<Events> findByStatus(Availability avail);
+	@Modifying
+	@Query(value= "update events set company_id=?1 where event_id=?2",nativeQuery=true)
+	int assignEvent(int companyId,int eventId);
+	
+	@Modifying
+	@Query(value= "update event set status=?1 where event_id=?2",nativeQuery=true)
+	int changeStatus(Status status,int eventId);
+	
+	List<Events> findByEventProvider(String eventProvider);
+    List<Events> findByEventName(String eventName);
+    List<Events> findByStartDate(LocalDate startDate);
+    List<Events> findByEndDate(LocalDate endDate);
+    List<Events> findByStatus(Status status);
+    List<Events> findByPrice(double price);
+    List<Events> findByPriority(Priority priority);
+}

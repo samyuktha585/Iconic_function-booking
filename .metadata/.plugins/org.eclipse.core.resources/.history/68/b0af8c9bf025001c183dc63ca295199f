@@ -1,0 +1,21 @@
+package com.iconicsbooking.repository;
+
+import org.springframework.stereotype.Repository;
+
+import java.time.LocalDate;
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import com.iconicsbooking.model.Events;
+import com.iconicsbooking.model.Priority;
+
+@Repository
+public interface IEventRepository extends JpaRepository<Events, Integer>{
+
+	List<Events> findByEventProvider(Priority priority);
+    List<Events> findByEventName(String eventName);
+    List<Events> findByStartDate(LocalDate startDate);
+    List<Events> findByEndDate(LocalDate endDate);
+    List<Events> findByStatus(String status);
+    List<Events> findByPrice(double price);
+}

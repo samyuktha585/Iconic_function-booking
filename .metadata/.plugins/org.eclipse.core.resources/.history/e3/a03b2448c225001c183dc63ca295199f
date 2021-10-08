@@ -1,0 +1,24 @@
+package com.iconicsbooking.service;
+
+import java.util.List;
+
+import com.iconicsbooking.model.Events;
+
+public interface IEventService {
+	Events addEvent(Events events);
+
+	void updateEvent(Events events);
+
+	void deleteEvent(int serviceId);
+
+	List<Events> getAll();
+
+	Events getById(int serviceId);
+	
+//	 String serviProvider;
+//	 LocalDate startDate;
+//	 LocalDate endDate;
+//	 Priority priority;
+//     Status status;
+//	 double price;
+}

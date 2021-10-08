@@ -1,0 +1,6 @@
+package com.iconicsbooking.service;
+
+public interface IMarriageService {
+	
+
+}

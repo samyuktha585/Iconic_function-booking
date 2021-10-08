@@ -1,0 +1,6 @@
+package com.iconicsbooking.model;
+
+public enum Status {
+
+	AVAILABLE,IN_PROGRESS,NOT_AVAILABLE;
+}

@@ -1,0 +1,19 @@
+package com.iconicsbooking.model;
+
+import java.util.Set;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+public class Workers {
+private String workerName;
+private Integer wokerId;
+private String contactNumber;
+private String status;
+@OneToMany(mappedBy = "workers")
+Set<TaskService> taskService;
+
+@ManyToOne
+@JoinColumn(name = "service_id")
+Marriage marriage;
+}

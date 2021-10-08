@@ -1,0 +1,25 @@
+package com.iconicsbooking.repository;
+
+import org.springframework.stereotype.Repository;
+
+import java.time.LocalDate;
+import java.util.List;
+
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import com.iconicsbooking.model.Events;
+import com.iconicsbooking.model.Priority;
+import com.iconicsbooking.model.Status;
+
+@Repository
+public interface IEventRepository extends JpaRepository<Events, Integer>{
+//
+//	List<Events> findByPriority(Priority priority);
+//    List<Events> findByProvider(String serviProvider);
+//    List<Events> findByStartDate(LocalDate startDate);
+//    List<Events> findByEndDate(LocalDate endDate);
+//    List<Events> findByStartDate(Status status);
+//    List<Events> findByPrice(double price);
+}

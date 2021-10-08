@@ -1,0 +1,81 @@
+package com.iconicsbooking.service;
+
+import java.time.LocalDate;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.iconicsbooking.model.Events;
+import com.iconicsbooking.model.Priority;
+import com.iconicsbooking.repository.IEventRepository;
+
+@Service
+public class EventServiceImpl implements IEventService{
+	@Autowired
+	IEventRepository eventRepository;
+	public void setEventRepository(IEventRepository eventRepository) {
+		this.eventRepository = eventRepository;
+	}
+
+	@Override
+	public Events addEvent(Events events) {
+		return eventRepository.save(events);
+	}
+
+	@Override
+	public void updateEvent(Events events) {
+		eventRepository.save(events);		
+	}
+
+	@Override
+	public void deleteEvent(int eventId) {
+		eventRepository.deleteById(eventId);		
+	}
+
+	@Override
+	public List<Events> getAll() {
+		return eventRepository.findAll();
+	}
+
+	@Override
+	public Events getById(int serviceId) {
+		return eventRepository.getById(serviceId);
+	}
+
+
+	@Override
+	public List<Events> getByEventName(String eventName) {
+		return eventRepository.findByEventName(eventName);
+	}
+
+	@Override
+	public List<Events> getByStartDate(LocalDate startDate) {
+		return eventRepository.findByStartDate(startDate);
+	}
+
+	@Override
+	public List<Events> getByEndDate(LocalDate endDate) {
+		return eventRepository.findByEndDate(endDate);
+	}
+
+	@Override
+	public List<Events> getByStatus(Status status) {
+		return eventRepository.findByStatus(status);
+	}
+
+	@Override
+	public List<Events> getByPrice(double price) {
+		return eventRepository.findByPrice(price);
+	}
+
+	@Override
+	public List<Events> getByEventProvider(String eventProvider) {
+		return eventRepository.findByEventProvider(eventProvider);
+	}
+
+	@Override
+	public List<Events> getByPriority(Priority priority) {
+		return eventRepository.findByPriority(priority);
+	}
+
+	
+}

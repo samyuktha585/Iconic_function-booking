@@ -1,0 +1,5 @@
+package com.iconicsbooking.controller;
+
+public class EventsController {
+
+}

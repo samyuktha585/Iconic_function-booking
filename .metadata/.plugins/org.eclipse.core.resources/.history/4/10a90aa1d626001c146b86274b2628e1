@@ -1,0 +1,17 @@
+package com.iconicsbooking.model;
+
+public enum Status {
+	COMPLETED, NOT_STARTED, IN_PROGRESS;
+
+	private String value;
+
+	public String getResponse() {
+		return value;
+
+	}
+
+	private Status(String value) {
+		this.value = value;
+	}
+	
+}

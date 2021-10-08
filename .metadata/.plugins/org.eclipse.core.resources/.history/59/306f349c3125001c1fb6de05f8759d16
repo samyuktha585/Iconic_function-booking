@@ -1,0 +1,13 @@
+package com.iconicsbooking.model;
+
+import javax.persistence.OneToMany;
+
+public class Workers {
+private String workerName;
+private Integer wokerId;
+private String contactNumber;
+private String status;
+@OneToMany(mappedBy = "workers")
+TaskService taskService;
+
+}

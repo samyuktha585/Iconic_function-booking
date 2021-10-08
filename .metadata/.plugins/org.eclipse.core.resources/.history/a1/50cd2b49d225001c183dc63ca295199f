@@ -1,0 +1,10 @@
+package com.iconicsbooking.model;
+
+public class IconicBooking {
+	private Integer companyId;
+	private String companyName;
+	private String ownerName;
+	private double rating;
+	
+
+}
